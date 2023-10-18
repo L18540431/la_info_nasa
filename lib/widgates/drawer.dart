@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:la_info_nasa/screens/homepage.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -18,9 +19,21 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Opción 1'),
+            title: Text('Catalogo'),
+            onTap: () {
+              
+             },
+          ),
+          ListTile(
+            title: Text('¿Que es la nasa?'),
             onTap: () {
              },
+          ),
+          ListTile(
+            title: Text('Dirección'),
+            onTap: () {
+            
+              },
           ),
           ListTile(
             title: Text('Salir'),
