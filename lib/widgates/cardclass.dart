@@ -1,52 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:la_info_nasa/screens/detailsscreen.dart';
 
 class MyCard extends StatelessWidget {
   final String title;
-  final String description;
   final IconData icon;
+  final Widget image; // Agregamos un Widget para la imagen
 
-  MyCard({required this.title, required this.description, required this.icon});
+  const MyCard({
+    required this.title,
+    required this.icon,
+    required this.image, // Asegúrate de recibir la imagen como parámetro
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailsScreen(
-              title: title,
-              description: description,
+    return Card(
+      elevation: 4.0,
+      margin: EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          ListTile(
+            leading: Icon(icon),
+            title: Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        );
-      },
-      child: Card(
-        elevation: 4,
-        margin: EdgeInsets.all(10),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Icon(
-                icon,
-                size: 40,
-                color: Colors.blue,
-              ),
-              SizedBox(height: 10),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(description),
-            ],
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: image, // Mostramos la imagen aquí
           ),
-        ),
+        ],
       ),
     );
   }
