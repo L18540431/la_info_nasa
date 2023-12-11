@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  final String title;
-  final String description;
+  final String screenTitle;
   final String imageUrl;
+  final String description;
 
   const DetailScreen({
-    required this.title,
-    required this.description,
+    required this.screenTitle,
     required this.imageUrl,
+    required this.description,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(screenTitle),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -28,10 +28,25 @@ class DetailScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                description,
-                style: TextStyle(fontSize: 16),
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Description:',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    description.isNotEmpty ? description : 'No description available', // Verificar si la descripción está vacía
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
